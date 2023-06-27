@@ -16,6 +16,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.resources.ResourceLocation;
 import muramasa.antimatter.data.ForgeCTags;
+import trinsdar.gt4r.data.GT4RData;
 import trinsdar.gt4r.data.GT4RMaterialTags;
 
 import static muramasa.antimatter.machine.Tier.LV;
@@ -111,16 +112,19 @@ public class AssemblyLoader {
         ASSEMBLING.RB().ii(of(CABLE_GOLD.getBlockItem(PipeSize.VTINY), 4), PLATE.getMaterialIngredient(BatteryAlloy, 9)).io(new ItemStack(BatteryHullLarge)).add("battery_hull_large",6400, 4);
         ASSEMBLING.RB().ii(PLATE.getMaterialIngredient(Invar, 2), GEM.getMaterialIngredient(Flint, 1)).io(new ItemStack(LighterEmpty)).add("lighter_empty",256, 16);
         ASSEMBLING.RB().ii(PLATE.getMaterialIngredient(Zinc, 4), of(CarbonMesh, 4)).io(new ItemStack(ItemFilter)).add("item_filter",1600, 32);
+
+        ASSEMBLING.RB().ii(ROD.getMaterialIngredient(Iron, 3), GT4RData.INT_CIRCUITS.get(3)).io(new ItemStack(Items.IRON_BARS, 8)).add("iron_bars", 300, 4);
+        ASSEMBLING.RB().ii(of(PLATE.get(Iron, 7), PLATE.get(WroughtIron, 7)), GT4RData.INT_CIRCUITS.get(7)).io(Items.CAULDRON).add("cauldron", 700, 4);
     }
 
     public static int getRubberAmount(PipeSize size){
-        switch (size){
-            case SMALL: return  2;
-            case NORMAL: return 3;
-            case LARGE: return 4;
-            case HUGE: return 5;
-            default: return 1;
-        }
+        return switch (size) {
+            case SMALL -> 2;
+            case NORMAL -> 3;
+            case LARGE -> 4;
+            case HUGE -> 5;
+            default -> 1;
+        };
     }
 
     public static TagKey<Item> getTag(String domain, String path){
