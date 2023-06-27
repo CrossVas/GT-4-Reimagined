@@ -6,19 +6,16 @@ import muramasa.antimatter.material.Material;
 import muramasa.antimatter.material.MaterialStack;
 import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
 import muramasa.antimatter.recipe.map.RecipeBuilder;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.fluids.FluidStack;
-import trinsdar.gt4r.data.GT4RMaterialTags;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static muramasa.antimatter.data.AntimatterMaterialTypes.*;
 import static muramasa.antimatter.data.AntimatterMaterials.*;
-import static muramasa.antimatter.recipe.ingredient.RecipeIngredient.*;
-import static trinsdar.gt4r.data.GT4RMaterialTags.ELEC;
+import static muramasa.antimatter.recipe.ingredient.RecipeIngredient.of;
 import static trinsdar.gt4r.data.Materials.*;
 import static trinsdar.gt4r.data.RecipeMaps.ELECTROLYZING;
 
@@ -40,7 +37,6 @@ public class ElectrolyzerLoader {
 //            add(m, power, (int) m.getMass() * count);
 //        });
 
-        ELECTROLYZING.RB().fi(Water.getLiquid(3000)).fo(Hydrogen.getGas(2000), Oxygen.getGas(1000)).add("water",2000, 30);
         ELECTROLYZING.RB().ii(RecipeIngredient.of(new ItemStack(Items.BONE_MEAL, 3))).io(DUST.get(Calcium, 1)).add("bone_meal",24, 106);
         ELECTROLYZING.RB().ii(RecipeIngredient.of(new ItemStack(Blocks.SAND, 8))).io(DUST.get(SiliconDioxide, 1)).add("sand",500, 25);
         ELECTROLYZING.RB().ii(RecipeIngredient.of(new ItemStack(Blocks.RED_SAND, 8))).io(DUST.get(SiliconDioxide, 1), DUST_TINY.get(Iron, 1)).add("red_sand",500, 25);
