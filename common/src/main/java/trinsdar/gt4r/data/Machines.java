@@ -63,6 +63,7 @@ import static trinsdar.gt4r.data.GT4RData.COVER_FUSION_INPUT;
 import static trinsdar.gt4r.data.GT4RData.COVER_FUSION_OUTPUT;
 import static trinsdar.gt4r.data.GT4RData.COVER_STEAM_VENT;
 import static trinsdar.gt4r.data.RecipeMaps.*;
+import static trinsdar.gt4r.data.RecipeMaps.THERMAL_GENERATOR_FUELS;
 
 public class Machines {
 
@@ -197,6 +198,7 @@ public class Machines {
     public static BasicMachine HEAT_EXCHANGER = new BasicMachine(Ref.ID, "heat_exchanger").setMap(HOT_FUELS).setTiers(LV).addFlags(GUI, FLUID).overlayTexture(Textures.LEFT_RIGHT_HANDLER).covers(emptyFactory).setTile(TileEntityHeatExchanger::new);
     public static GeneratorMachine DIESEL_GENERATOR = new GeneratorMachine(Ref.ID, "diesel_generator").frontCovers().allowFrontIO().setMap(DIESEL_FUELS).setTiers(LV).addFlags(GUI, ITEM, FLUID, GENERATOR, CELL).covers(emptyFactory,emptyFactory,emptyFactory,emptyFactory,emptyFactory, COVER_DYNAMO_OLD).setAllowVerticalFacing(false).setOutputCover(COVER_DYNAMO_OLD).setTile(TileEntityCoveredGenerator::new);
     public static GeneratorMachine SEMIFLUID_GENERATOR = new GeneratorMachine(Ref.ID, "semifluid_generator").frontCovers().allowFrontIO().setMap(SEMIFLUID_FUELS).setTiers(LV).addFlags(GUI, ITEM, FLUID, GENERATOR, CELL).covers(emptyFactory,emptyFactory,emptyFactory,emptyFactory,emptyFactory, COVER_DYNAMO_OLD).setAllowVerticalFacing(false).setOutputCover(COVER_DYNAMO_OLD).setTile(TileEntityCoveredGenerator::new);
+    public static GeneratorMachine THERMAL_GENERATOR = new GeneratorMachine(Ref.ID, "thermal_generator").frontCovers().allowFrontIO().allowFrontIO().setMap(THERMAL_GENERATOR_FUELS).setTiers(LV).addFlags(GUI, ITEM, FLUID, GENERATOR, CELL).covers(emptyFactory, emptyFactory, emptyFactory, emptyFactory, emptyFactory, COVER_DYNAMO_OLD).setAllowVerticalFacing(false).setOutputCover(COVER_DYNAMO_OLD).setTile(TileEntityCoveredGenerator::new);
     public static GeneratorMachine WINDMILL = new GeneratorMachine(Ref.ID, "windmill").setTiers(ULV).covers(emptyFactory,emptyFactory,emptyFactory,emptyFactory,emptyFactory, COVER_DYNAMO_OLD).allowFrontIO().setAllowVerticalFacing(false).setOutputCover(COVER_DYNAMO_OLD).setTile(TileEntityCoveredGenerator::new);
     public static GeneratorMachine WATERMILL = new GeneratorMachine(Ref.ID, "watermill").setTiers(ULV).covers(emptyFactory,emptyFactory,emptyFactory,emptyFactory,emptyFactory, COVER_DYNAMO_OLD).allowFrontIO().setAllowVerticalFacing(false).setOutputCover(COVER_DYNAMO_OLD).setTile(TileEntityCoveredGenerator::new).custom();
 
@@ -213,6 +215,7 @@ public class Machines {
         GAS_TURBINE.setOutputCover(COVER_DYNAMO_OLD);
         DIESEL_GENERATOR.setOutputCover(COVER_DYNAMO_OLD);
         SEMIFLUID_GENERATOR.setOutputCover(COVER_DYNAMO_OLD);
+        THERMAL_GENERATOR.setOutputCover(COVER_DYNAMO_OLD);
         WINDMILL.setOutputCover(COVER_DYNAMO_OLD);
         WATERMILL.setOutputCover(COVER_DYNAMO_OLD);
         ENERGY.remove(HEAT_EXCHANGER);

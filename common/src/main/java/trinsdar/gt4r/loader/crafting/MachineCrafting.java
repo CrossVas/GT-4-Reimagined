@@ -66,7 +66,9 @@ public class MachineCrafting {
                 FUSION_REACTOR.getItem(IV), of('C', CIRCUITS_MASTER, 'c', COMPUTER_CUBE.getItem(LV), 'F', FUSION_COIL), "CCC", "cFc", "CCC");
     }
 
-    private static void loadGeneratorRecipes(Consumer<FinishedRecipe> output, AntimatterRecipeProvider provider){
+    private static void loadGeneratorRecipes(Consumer<FinishedRecipe> output, AntimatterRecipeProvider provider) {
+        provider.addItemRecipe(output, Ref.ID, "thermal_generator", "machines", "has_hull", provider.hasSafeItem(MACHINE_HULLS_BASIC),
+                THERMAL_GENERATOR.getItem(LV), of('P', PLATES_INVAR_ALUMINIUM, 'C', CIRCUITS_BASIC, 'M', MACHINE_HULLS_BASIC, 'R', REINFORCED_GLASS), "PPP", "PRP", "CMC");
         provider.addItemRecipe(output, Ref.ID, "diesel_generator", "machines", "has_hull", provider.hasSafeItem(MACHINE_HULLS_BASIC),
                 DIESEL_GENERATOR.getItem(LV), of('P', PLATES_WROUGHT_ALUMINIUM, 'B', BatteryRE, 'C', CIRCUITS_BASIC, 'M', MACHINE_HULLS_BASIC), "PBP", "P P", "CMC");
         provider.addItemRecipe(output, Ref.ID, "semifluid_generator", "machines", "has_hull", provider.hasSafeItem(MACHINE_HULLS_BASIC),

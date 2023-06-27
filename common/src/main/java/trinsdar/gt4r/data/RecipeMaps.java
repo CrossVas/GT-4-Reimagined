@@ -25,6 +25,7 @@ public class RecipeMaps {
     public static RecipeMap<?> DIESEL_FUELS = AntimatterAPI.register(RecipeMap.class, new RecipeMap<>(Ref.ID, "diesel_fuels", new RecipeBuilder()));
     public static RecipeMap<?> HOT_FUELS = AntimatterAPI.register(RecipeMap.class, new RecipeMap<>(Ref.ID, "hot_fuels", new RecipeBuilder()));
     public static RecipeMap<?> SEMIFLUID_FUELS = AntimatterAPI.register(RecipeMap.class, new RecipeMap<>(Ref.ID, "semifluid_fuels", new RecipeBuilder()));
+    public static RecipeMap<?> THERMAL_GENERATOR_FUELS = AntimatterAPI.register(RecipeMap.class, new RecipeMap<>(Ref.ID, "thermal_generator_fuels", new RecipeBuilder()));
     public static RecipeMap<?> THERMAL_BOILER_FUELS = AntimatterAPI.register(RecipeMap.class, new RecipeMap<>(Ref.ID, "thermal_boiler_fuels", new RecipeBuilder()));
 
     public static RecipeMap<?> COAL_BOILERS = AntimatterAPI.register(RecipeMap.class, new RecipeMap<>(Ref.ID, "coal_boilers", new RecipeBuilder()));
