@@ -46,7 +46,7 @@ public class AlloySmelterLoader {
 //            }
 //        });
 
-        // BRONZE Alloy Smelter: duration * 3
+        // BRONZE: duration * 3
         addPlateRecipe(BatteryAlloy, 360);
         addPlateRecipe(Beryllium, 48);
         addPlateRecipe(Brass, 120);
