@@ -44,6 +44,7 @@ dependencies {
     common(project(path: ":antimatter-common", configuration: "namedElements")){
         transitive = false;
     }
+    modRuntimeOnly("io.github.trinsdar:networkapi-forge:${project.networkapi_version}")
     //JEI
     //modRuntimeOnly("mezz.jei:jei-${rootProject.minecraft_version}-forge:${rootProject.jei_version}")
     modImplementation "me.shedaniel:RoughlyEnoughItems-forge:${rootProject.rei_version}"
