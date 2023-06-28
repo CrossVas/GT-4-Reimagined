@@ -45,7 +45,7 @@ public class ElectrolyzerLoader {
         add(Steel,50, 60, 2600);
         add(DarkAsh, 1, 30, 24);
         add(AntimatterMaterials.Coal, 1, 30, 24);
-//        if (breakMethod) return;
+        if (breakMethod) return;
 
         add(SodiumPersulfate, 90, 432); //close
         add(Methane, 60, 80); // close: 1 sec off
