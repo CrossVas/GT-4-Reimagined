@@ -1,10 +1,12 @@
 package trinsdar.gt4r.loader.machines;
 
 import muramasa.antimatter.AntimatterConfig;
+import muramasa.antimatter.data.AntimatterMaterialTypes;
 import muramasa.antimatter.data.AntimatterMaterials;
 import muramasa.antimatter.material.Material;
 import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
 import trinsdar.gt4r.data.GT4RData;
+import trinsdar.gt4r.data.GT4RMaterialTags;
 
 import static muramasa.antimatter.data.AntimatterMaterialTypes.*;
 import static muramasa.antimatter.data.AntimatterMaterials.*;
@@ -13,8 +15,6 @@ import static trinsdar.gt4r.data.Materials.*;
 import static trinsdar.gt4r.data.RecipeMaps.ALLOY_SMELTING;
 
 public class AlloySmelterLoader {
-
-    static int ingotCount = AntimatterConfig.GAMEPLAY.LOSSY_PART_CRAFTING ? 2 : 1;
 
     public static void init(){
         ALLOY_SMELTING.RB().ii(DUST.getMaterialIngredient(Tetrahedrite, 3), INGOT.getMaterialIngredient(Tin, 1)).io(INGOT.get(Bronze, 3)).add("bronze_ingot_from_tetra", 150, 16);
@@ -34,51 +34,17 @@ public class AlloySmelterLoader {
         //TODO compat for bluepower
         //ALLOY_SMELTING.RB().ii(DUST.getMaterialIngredient(Nikolite, 4), DUST.getMaterialIngredient(Copper)).io(INGOT.get(BlueAlloy, 1)).add(50, 16);
         //ALLOY_SMELTING.RB().ii(DUST.getMaterialIngredient(Nikolite, 4), INGOT.getMaterialIngredient(Copper)).io(INGOT.get(BlueAlloy, 1)).add(50, 16);
-//        int ingotCount = AntimatterConfig.GAMEPLAY.LOSSY_PART_CRAFTING ? 2 : 1;
+        int ingotCount = AntimatterConfig.GAMEPLAY.LOSSY_PART_CRAFTING ? 2 : 1;
         // TODO: Re-add when duration issue is fixed
-//        AntimatterMaterialTypes.PLATE.all().forEach(m -> {
-//            if (!m.has(GT4RMaterialTags.NEEDS_BLAST_FURNACE) && m.has(AntimatterMaterialTypes.INGOT)){
-//                int euTick = m.has(RUBBERTOOLS) ? 16 : 32;
-//                ALLOY_SMELTING.RB().ii(INGOT.getMaterialIngredient(m, ingotCount), RecipeIngredient.of(GT4RData.MoldPlate, 1).setNoConsume()).io(PLATE.get(m, 1)).add(m.getId() + "_plate", m.getMass() * ingotCount, euTick);
-//                if (m.has(RUBBERTOOLS) && m.has(DUST)){
-//                    ALLOY_SMELTING.RB().ii(DUST.getMaterialIngredient(m, ingotCount), RecipeIngredient.of(GT4RData.MoldPlate, 1).setNoConsume()).io(PLATE.get(m, 1)).add(m.getId() + "_plate_1", m.getMass() * ingotCount, euTick);
-//                }
-//            }
-//        });
-
-        // BRONZE: duration * 3
-        addPlateRecipe(BatteryAlloy, 360);
-        addPlateRecipe(Beryllium, 48);
-        addPlateRecipe(Brass, 120);
-        addPlateRecipe(Bronze, 140);
-        addPlateRecipe(Copper, 120);
-        addPlateRecipe(Cupronickel, 120);
-        addPlateRecipe(Electrum, 300);
-        addPlateRecipe(Gold, 380);
-        addPlateRecipe(Invar, 100);
-        addPlateRecipe(Iron, 100);
-        addPlateRecipe(Lead, 400);
-        addPlateRecipe(Magnalium, 40);
-        addPlateRecipe(Nickel, 100);
-        addPlateRecipe(IronMagnetic, 100);
-        addPlateRecipe(Plastic, 84);
-        addPlateRecipe(RedAlloy, 860);
-        addPlateRecipe(Platinum, 380);
-        addPlateRecipe(Rubber, 10);
-        addPlateRecipe(SolderingAlloy, 220);
-        addPlateRecipe(Silver, 200);
-        addPlateRecipe(Tin, 220);
-        addPlateRecipe(Technetium, 588);
-        addPlateRecipe(WroughtIron, 100);
-        addPlateRecipe(Zinc, 120);
-    }
-
-    public static void addPlateRecipe(Material mat, int duration) {
-        int euTick = mat.has(RUBBERTOOLS) ? 16 : 32;
-        ALLOY_SMELTING.RB().ii(INGOT.getMaterialIngredient(mat, ingotCount), RecipeIngredient.of(GT4RData.MoldPlate, 1).setNoConsume()).io(PLATE.get(mat, 1)).add(mat.getId() + "_plate", duration, euTick);
-        if (mat.has(RUBBERTOOLS) && mat.has(DUST)) {
-            ALLOY_SMELTING.RB().ii(DUST.getMaterialIngredient(mat, ingotCount), RecipeIngredient.of(GT4RData.MoldPlate, 1).setNoConsume()).io(PLATE.get(mat, 1)).add(mat.getId() + "_plate_1", duration, euTick);
-        }
+        AntimatterMaterialTypes.PLATE.all().forEach(m -> {
+            if (!m.has(GT4RMaterialTags.NEEDS_BLAST_FURNACE) && m.has(AntimatterMaterialTypes.INGOT)){
+                int euTick = m.has(RUBBERTOOLS) ? 16 : 32;
+                ALLOY_SMELTING.RB().ii(INGOT.getMaterialIngredient(m, ingotCount), RecipeIngredient.of(GT4RData.MoldPlate, 1).setNoConsume()).io(PLATE.get(m, 1)).add(m.getId() + "_plate", m.getMass() * ingotCount, euTick);
+                if (m.has(RUBBERTOOLS) && m.has(DUST)){
+                    ALLOY_SMELTING.RB().ii(DUST.getMaterialIngredient(m, ingotCount), RecipeIngredient.of(GT4RData.MoldPlate, 1).setNoConsume()).io(PLATE.get(m, 1)).add(m.getId() + "_plate_1", m.getMass() * ingotCount, euTick);
+                }
+            }
+        });
     }
 
     private static void addAlloyRecipes(Material input1, int count1, Material input2, int count2, Material output, int countO, int duration){
