@@ -10,6 +10,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import trinsdar.gt4r.data.GT4RData;
+import trinsdar.gt4r.data.GT4RMaterialTags;
 
 import static muramasa.antimatter.data.AntimatterMaterialTypes.*;
 import static trinsdar.gt4r.data.Materials.*;
@@ -56,7 +57,7 @@ public class FluidExtractorLoader {
     }
 
     private static void add(Material m, MaterialTypeItem<?> i, float ratio) {
-        if (!m.has(LIQUID)) return;
+        if (!m.has(LIQUID) || m.has(GT4RMaterialTags.NEEDS_BLAST_FURNACE)) return;
         long amount = amount(ratio);
         FLUID_EXTRACTING.RB()
                 .ii(i.getMaterialIngredient(m, 1))
