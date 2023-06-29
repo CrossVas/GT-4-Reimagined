@@ -278,16 +278,6 @@ public class Parts {
                 NeutronReflector, of('C', AntimatterMaterialTypes.DUST.get(AntimatterMaterials.Coal), 'T', AntimatterMaterialTypes.DUST.get(Tin), 'I', AntimatterMaterialTypes.PLATE.get(AntimatterMaterials.Copper)), "TCT", "CIC", "TCT");
 
         TagKey<Item> hammer = AntimatterDefaultTools.HAMMER.getTag();
-        TagKey<Item> wrench = AntimatterDefaultTools.WRENCH.getTag();
-
-        provider.addItemRecipe(output, Ref.ID, "hopper_1", "parts", "has_wrench", provider.hasSafeItem(wrench), Items.HOPPER,
-                of('P', PLATE.get(Iron), 'W', wrench, 'C', ForgeCTags.CHESTS), "PWP", "PCP", " P ");
-        provider.addStackRecipe(output, Ref.ID, "iron_bars", "parts", "has_wrench", provider.hasSafeItem(wrench), new ItemStack(Items.IRON_BARS, 8),
-                of('R', ROD.get(Iron), 'W', wrench), " W ", "RRR", "RRR");
-        provider.addItemRecipe(output, Ref.ID, "cauldron", "parts", "has_hammer", provider.hasSafeItem(hammer), Items.CAULDRON,
-                of('P', PLATE.get(Iron), 'H', hammer), "P P", "PHP", "PPP");
-
-        provider.shapeless(output, Ref.ID, "flint_and_steel", "parts", "has_hammer", provider.hasSafeItem(hammer), new ItemStack(Items.FLINT_AND_STEEL), NUGGET.get(Steel), Items.FLINT);
         provider.shapeless(output, Ref.ID,"stainlesssteel_dust_9", "dusts", "has_hammer", provider.hasSafeItem(hammer), DUST.get(StainlessSteel, 9),
                 DUST.getMaterialTag(AntimatterMaterials.Iron), DUST.getMaterialTag(AntimatterMaterials.Iron), DUST.getMaterialTag(AntimatterMaterials.Iron),
                 DUST.getMaterialTag(AntimatterMaterials.Iron), DUST.getMaterialTag(AntimatterMaterials.Iron), DUST.getMaterialTag(AntimatterMaterials.Iron),

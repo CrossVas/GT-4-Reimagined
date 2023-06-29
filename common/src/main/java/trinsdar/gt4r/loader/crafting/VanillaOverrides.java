@@ -24,7 +24,8 @@ import trinsdar.gt4r.data.GT4RData;
 import java.util.function.Consumer;
 
 import static com.google.common.collect.ImmutableMap.of;
-import static muramasa.antimatter.data.AntimatterMaterialTypes.DUST;
+import static muramasa.antimatter.data.AntimatterMaterialTypes.*;
+import static muramasa.antimatter.data.AntimatterMaterials.Iron;
 import static muramasa.antimatter.data.AntimatterMaterials.Stone;
 import static muramasa.antimatter.util.TagUtils.getForgelikeItemTag;
 import static trinsdar.gt4r.data.Materials.*;
@@ -70,13 +71,25 @@ public class VanillaOverrides {
             TagKey<Item> tag = TagUtils.getForgelikeItemTag("dyes/" + color);
             provider.shapeless(consumer, "concrete_" + color, "concretes", "has_dye", provider.hasSafeItem(tag), new ItemStack(AntimatterPlatformUtils.getItemFromID(new ResourceLocation(color + "_concrete_powder")), 8), tag, Items.SAND, Items.SAND, Items.SAND, Items.SAND, DUST.get(Stone), DUST.get(Stone), DUST.get(Stone), DUST.get(Stone));
         }
-        // todo: bucket, minecart, iron door
+
+        TagKey<Item> hammer = AntimatterDefaultTools.HAMMER.getTag();
+        TagKey<Item> wrench = AntimatterDefaultTools.WRENCH.getTag();
+
+        provider.addStackRecipe(consumer, Ref.ID, "iron_bars", "misc", "has_iron", provider.hasSafeItem(wrench), new ItemStack(Items.IRON_BARS, 8),
+                of('R', ROD.get(Iron), 'W', wrench), " W ", "RRR", "RRR");
+        provider.addItemRecipe(consumer, Ref.ID, "cauldron", "misc", "has_iron", provider.hasSafeItem(hammer), Items.CAULDRON,
+                of('P', PLATE.get(Iron), 'H', hammer), "P P", "PHP", "PPP");
+        provider.addItemRecipe(consumer, Ref.ID, "minecart", "misc", "has_iron", provider.hasSafeItem(hammer), Items.MINECART,
+                of('P', PLATE.get(Iron), 'H', hammer, 'W', wrench), " H ", "PWP", "PPP");
+        provider.addItemRecipe(consumer, Ref.ID, "iron_door", "misc", "has_iron", provider.hasSafeItem(hammer), Items.IRON_DOOR,
+                of('P', PLATE.get(Iron), 'H', hammer), "PP ", "PPH", "PP ");
+
+        provider.shapeless(consumer, Ref.ID, "flint_and_steel", "misc", "has_hammer", provider.hasSafeItem(AntimatterDefaultTools.HAMMER.getTag()), new ItemStack(Items.FLINT_AND_STEEL), NUGGET.get(Steel), Items.FLINT);
 
         provider.addItemRecipe(consumer, "minecraft", "", "misc", "has_iron", provider.hasSafeItem(AntimatterMaterialTypes.PLATE.getMaterialTag(AntimatterMaterials.Iron)),
                 Items.BUCKET, of('I', AntimatterMaterialTypes.PLATE.getMaterialTag(AntimatterMaterials.Iron), 'H', AntimatterDefaultTools.HAMMER.getTag()), "IHI", " I ");
         provider.addItemRecipe(consumer, "minecraft", "", "misc", "has_iron", provider.hasSafeItem(AntimatterMaterialTypes.PLATE.getMaterialTag(AntimatterMaterials.Iron)),
                 Items.HOPPER, of('I', AntimatterMaterialTypes.PLATE.getMaterialTag(AntimatterMaterials.Iron), 'W', AntimatterDefaultTools.WRENCH.getTag(), 'C', ForgeCTags.CHESTS), "IWI", "ICI", " I ");
-
 
         provider.addItemRecipe(consumer, "minecraft", "", "material_armor", "has_diamond", provider.hasSafeItem(AntimatterMaterialTypes.GEM.getMaterialTag(AntimatterMaterials.Diamond)),
                 Items.DIAMOND_BOOTS, of('X', AntimatterMaterialTypes.GEM.getMaterialTag(AntimatterMaterials.Diamond), 'H', AntimatterDefaultTools.HAMMER.getTag()), "X X", "XHX");
