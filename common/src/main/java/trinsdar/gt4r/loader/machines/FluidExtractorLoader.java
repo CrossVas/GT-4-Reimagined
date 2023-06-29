@@ -1,22 +1,18 @@
 package trinsdar.gt4r.loader.machines;
 
-import muramasa.antimatter.data.AntimatterMaterialTypes;
+import muramasa.antimatter.data.ForgeCTags;
 import muramasa.antimatter.material.Material;
 import muramasa.antimatter.material.MaterialTags;
 import muramasa.antimatter.material.MaterialTypeItem;
 import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
 import muramasa.antimatter.util.AntimatterPlatformUtils;
-import net.minecraft.world.item.Item;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.tags.ItemTags;
-import muramasa.antimatter.data.ForgeCTags;
 import trinsdar.gt4r.data.GT4RData;
 
 import static muramasa.antimatter.data.AntimatterMaterialTypes.*;
-import static trinsdar.gt4r.data.Materials.FishOil;
-import static trinsdar.gt4r.data.Materials.Honey;
-import static trinsdar.gt4r.data.Materials.SeedOil;
+import static trinsdar.gt4r.data.Materials.*;
 import static trinsdar.gt4r.data.RecipeMaps.FLUID_EXTRACTING;
 import static trinsdar.gt4r.data.RecipeMaps.FLUID_EXTRACTOR_COILS;
 
@@ -65,7 +61,7 @@ public class FluidExtractorLoader {
         FLUID_EXTRACTING.RB()
                 .ii(i.getMaterialIngredient(m, 1))
                 .fo(m.getLiquid(amount))
-                .add(m.getId() + "_" + i.getId(), (long)(m.getMass()*((float)amount/ratio())), 64, MaterialTags.MELTING_POINT.getInt(m));
+                .add(m.getId() + "_" + i.getId(), (long)(m.getMass()*((float)amount/ratio())), 28, MaterialTags.MELTING_POINT.getInt(m));
     }
 
     private static long ratio(){
