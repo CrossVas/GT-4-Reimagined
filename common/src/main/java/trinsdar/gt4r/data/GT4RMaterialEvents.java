@@ -354,6 +354,7 @@ public class GT4RMaterialEvents {
         GT4RMaterialTags.DRUM.add(Bronze, Steel, StainlessSteel, Invar, Tungsten, TungstenSteel, AntimatterMaterials.Netherite);
         GT4RMaterialTags.DRUM.all().forEach(m -> event.setMaterial(m).flags(AntimatterMaterialTypes.ROD, AntimatterMaterialTypes.PLATE));
         GT4RMaterialTags.WORKBENCH.add(Bronze, AntimatterMaterials.Iron, Aluminium);
+        GT4RMaterialTags.WORKBENCH.add(Bronze, AntimatterMaterials.Iron, Aluminium);
         GT4RMaterialTags.CHARGING_WORKBENCH.add(AntimatterMaterials.Iron, Aluminium);
         GT4RMaterialTags.LOCKER.add(AntimatterMaterials.Iron, Aluminium);
         GT4RMaterialTags.CHARGING_LOCKER.add(AntimatterMaterials.Iron, Aluminium);

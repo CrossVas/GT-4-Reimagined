@@ -9,6 +9,7 @@ import muramasa.antimatter.machine.Tier;
 import muramasa.antimatter.machine.types.Machine;
 import muramasa.antimatter.pipe.PipeSize;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import trinsdar.gt4r.Ref;
 import muramasa.antimatter.data.ForgeCTags;
@@ -17,6 +18,7 @@ import trinsdar.gt4r.data.GT4RMaterialTags;
 import java.util.function.Consumer;
 
 import static com.google.common.collect.ImmutableMap.of;
+import static muramasa.antimatter.data.AntimatterMaterials.Iron;
 import static muramasa.antimatter.machine.Tier.*;
 import static muramasa.antimatter.util.TagUtils.getForgelikeItemTag;
 import static trinsdar.gt4r.data.CustomTags.*;
@@ -37,7 +39,7 @@ public class MachineCrafting {
 
     private static void loadMultiblockRecipes(Consumer<FinishedRecipe> output, AntimatterRecipeProvider provider){
         provider.addItemRecipe(output, Ref.ID, "", "machines", "has_fire_bricks", provider.hasSafeItem(FireBrick),
-                PRIMITIVE_BLAST_FURNACE.getItem(NONE), of('B', FireBrick, 'I', AntimatterMaterialTypes.PLATE.getMaterialTag(AntimatterMaterials.Iron)), "BBB", "BIB", "BBB");
+                PRIMITIVE_BLAST_FURNACE.getItem(NONE), of('B', FireBrick, 'I', AntimatterMaterialTypes.PLATE.getMaterialTag(Iron)), "BBB", "BIB", "BBB");
         provider.addItemRecipe(output, Ref.ID, "", "machines", "has_fire_bricks", provider.hasSafeItem(FireBrick),
                 COKE_OVEN.getItem(NONE), of('B', FireBrick), "BBB", "B B", "BBB");
         provider.addItemRecipe(output, Ref.ID,"large_gas_turbine","machines", "has_gas_turbine", provider.hasSafeItem(GAS_TURBINE.getItem(LV)),
@@ -164,7 +166,7 @@ public class MachineCrafting {
         provider.addItemRecipe(output, Ref.ID, "pump", "machines", "has_hull", provider.hasSafeItem(MACHINE_HULLS_BASIC),
                 PUMP.getItem(LV), of('c', CellTin, 'C', CIRCUITS_BASIC, 'M', MACHINE_HULLS_BASIC, 'P', FLUID_PIPE_BRONZE.getBlockItem(PipeSize.SMALL)),"cCc", "cMc", "PPP");
         provider.addItemRecipe(output, Ref.ID, "ore_washer", "machines", "has_hull", provider.hasSafeItem(MACHINE_HULLS_BASIC),
-                ORE_WASHER.getItem(LV), of('m', MotorLV, 'C', CIRCUITS_BASIC, 'M', MACHINE_HULLS_BASIC, 'P', AntimatterMaterialTypes.PLATE.getMaterialTag(AntimatterMaterials.Iron), 'B', Items.BUCKET),"PPP", "BMB", "mCm");
+                ORE_WASHER.getItem(LV), of('m', MotorLV, 'C', CIRCUITS_BASIC, 'M', MACHINE_HULLS_BASIC, 'P', AntimatterMaterialTypes.PLATE.getMaterialTag(Iron), 'B', Items.BUCKET),"PPP", "BMB", "mCm");
         provider.addItemRecipe(output, Ref.ID, "thermal_centrifuge", "machines", "has_hull", provider.hasSafeItem(MACHINE_HULLS_ADVANCED),
                 THERMAL_CENTRIFUGE.getItem(MV), of('m', MotorMV, 'C', CopperCoil, 'M', MACHINE_HULLS_ADVANCED, 'P', AntimatterMaterialTypes.PLATE.getMaterialTag(WroughtIron)),"CmC", "PMP", "PmP");
         provider.addItemRecipe(output, Ref.ID, "watermill", "machines", "has_hull", provider.hasSafeItem(MACHINE_HULLS_BASIC),
@@ -218,6 +220,29 @@ public class MachineCrafting {
         GT4RMaterialTags.CHARGING_LOCKER.all().forEach(m -> {
             provider.addItemRecipe(output, Ref.ID, "charging_locker_" + m.getId(), "machines", "has_chest", provider.hasSafeItem(Machine.get(m.getId() + "_locker", Ref.ID).map(mch -> mch.getItem(LV)).orElse(Items.AIR)), Machine.get(m.getId() + "_charging_locker", Ref.ID).map(mch -> mch.getItem(HV)).orElse(Items.AIR), of('L', Machine.get(m.getId() + "_locker", Ref.ID).map(mch -> mch.getItem(LV)).orElse(Items.AIR), 'c', CABLE_GOLD.getBlockItem(PipeSize.VTINY), 'C', CIRCUITS_ADVANCED), "cCc", "cLc", "cCc");
         });*/
+
+        provider.addItemRecipe(output, Ref.ID, "workbench_bronze", "machines", "has_chest", provider.hasSafeItem(ForgeCTags.CHESTS_WOODEN), BRONZE_WORKBENCH.getItem(NONE),
+                of('P', AntimatterMaterialTypes.PLATE.getMaterialTag(Bronze), 'C', ForgeCTags.CHESTS_WOODEN, 'c', Items.CRAFTING_TABLE, 'S', AntimatterDefaultTools.SCREWDRIVER.getTag()), "PSP", "PcP", "PCP");
+        provider.addItemRecipe(output, Ref.ID, "workbench_iron", "machines", "has_chest", provider.hasSafeItem(ForgeCTags.CHESTS_WOODEN), IRON_WORKBENCH.getItem(NONE),
+                of('P', AntimatterMaterialTypes.PLATE.getMaterialTag(Iron), 'C', ForgeCTags.CHESTS_WOODEN, 'c', Items.CRAFTING_TABLE, 'S', AntimatterDefaultTools.SCREWDRIVER.getTag()), "PSP", "PcP", "PCP");
+        provider.addItemRecipe(output, Ref.ID, "workbench_aluminium", "machines", "has_chest", provider.hasSafeItem(ForgeCTags.CHESTS_WOODEN), ALUMINIUM_WORKBENCH.getItem(NONE),
+                of('P', AntimatterMaterialTypes.PLATE.getMaterialTag(Aluminium), 'C', ForgeCTags.CHESTS_WOODEN, 'c', Items.CRAFTING_TABLE, 'S', AntimatterDefaultTools.SCREWDRIVER.getTag()), "PSP", "PcP", "PCP");
+
+        provider.addItemRecipe(output, Ref.ID, "charging_workbench_iron", "machines", "has_chest", provider.hasSafeItem(ForgeCTags.CHESTS_WOODEN), IRON_CHARGING_WORKBENCH.getItem(HV),
+                of2('S', AntimatterDefaultTools.SCREWDRIVER.getTag(), 'w', AntimatterDefaultTools.WIRE_CUTTER.getTag(), 'W', IRON_WORKBENCH.getItem(NONE), 'c', CABLE_GOLD.getBlockItem(PipeSize.SMALL), 'C', CIRCUITS_ADVANCED, 'R', AntimatterMaterialTypes.ROD.getMaterialTag(Iron)), "RCR", "SWw", "ccc");
+        provider.addItemRecipe(output, Ref.ID, "charging_workbench_aluminium", "machines", "has_chest", provider.hasSafeItem(ForgeCTags.CHESTS_WOODEN), ALUMINIUM_CHARGING_WORKBENCH.getItem(HV),
+                of2('S', AntimatterDefaultTools.SCREWDRIVER.getTag(), 'w', AntimatterDefaultTools.WIRE_CUTTER.getTag(), 'W', ALUMINIUM_WORKBENCH.getItem(NONE), 'c', CABLE_GOLD.getBlockItem(PipeSize.SMALL), 'C', CIRCUITS_ADVANCED, 'R', AntimatterMaterialTypes.ROD.getMaterialTag(Aluminium)), "RCR", "SWw", "ccc");
+
+        provider.addItemRecipe(output, Ref.ID, "locker_iron", "machines", "has_chest", provider.hasSafeItem(ForgeCTags.CHESTS_WOODEN), IRON_LOCKER.getItem(NONE),
+                of('P', AntimatterMaterialTypes.PLATE.getMaterialTag(Iron), 'R', AntimatterMaterialTypes.ROD.getMaterialTag(Iron), 'L', Items.LEATHER, 'C', IRON_CABINET.getItem(LV), 'M', GT4RMaterialTags.HULL.getMaterialTag(Iron)), "RLR", "LCL", "PMP");
+        provider.addItemRecipe(output, Ref.ID, "locker_aluminium", "machines", "has_chest", provider.hasSafeItem(ForgeCTags.CHESTS_WOODEN), ALUMINIUM_LOCKER.getItem(NONE),
+                of('P', AntimatterMaterialTypes.PLATE.getMaterialTag(Aluminium), 'R', AntimatterMaterialTypes.ROD.getMaterialTag(Aluminium), 'L', Items.LEATHER, 'C', ALUMINIUM_CABINET.getItem(LV), 'M', GT4RMaterialTags.HULL.getMaterialTag(Aluminium)), "RLR", "LCL", "PMP");
+
+        provider.addItemRecipe(output, Ref.ID, "charging_locker_iron", "machines", "has_chest", provider.hasSafeItem(ForgeCTags.CHESTS_WOODEN), IRON_CHARGING_LOCKER.getItem(HV),
+                of('L', IRON_LOCKER.getItem(NONE), 'c', CABLE_GOLD.getBlockItem(PipeSize.VTINY), 'C', CIRCUITS_ADVANCED), "cCc", "cLc", "cCc");
+        provider.addItemRecipe(output, Ref.ID, "charging_locker_aluminium", "machines", "has_chest", provider.hasSafeItem(ForgeCTags.CHESTS_WOODEN), ALUMINIUM_CHARGING_LOCKER.getItem(HV),
+                of('L', ALUMINIUM_LOCKER.getItem(NONE), 'c', CABLE_GOLD.getBlockItem(PipeSize.VTINY), 'C', CIRCUITS_ADVANCED), "cCc", "cLc", "cCc");
+
         provider.addItemRecipe(output, Ref.ID, "hv_teleporter", "machines", "has_machine_hull_stabilized", provider.hasSafeItem(MACHINE_HULLS_STABILIZED), TELEPORTER.getItem(HV), of('C', CIRCUITS_ADVANCED, 'S', MACHINE_HULLS_STABILIZED, 'D', AntimatterMaterialTypes.GEM.getMaterialTag(AntimatterMaterials.Diamond), 'c', CABLE_ELECTRUM.getBlock(PipeSize.TINY), 'f', FrequencyTransmitter), "CfC", "cSc", "CDC");
         provider.addItemRecipe(output, Ref.ID, "luv_teleporter", "machines", "has_machine_hull_highly_advanced", provider.hasSafeItem(HIGHLY_ADVANCED_MACHINE_BLOCK), TELEPORTER.getItem(LUV), of('T', TELEPORTER.getItem(HV), 'M', HIGHLY_ADVANCED_MACHINE_BLOCK, 'L', LapotronicEnergyOrb, 'C', CIRCUITS_MASTER), "CTC", "TMT", "CLC");
     }

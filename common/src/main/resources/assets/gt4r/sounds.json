@@ -4,5 +4,26 @@
   },
   "drill": {
     "sounds": [ "gt4r:drill" ]
+  },
+  "extractor": {
+    "sounds": [ "gt4r:extractor" ]
+  },
+  "compressor": {
+    "sounds": [ "gt4r:compressor" ]
+  },
+  "press": {
+    "sounds": [ "gt4r:press" ]
+  },
+  "recycler": {
+    "sounds": [ "gt4r:recycler" ]
+  },
+  "furnace": {
+    "sounds": [ "gt4r:furnace" ]
+  },
+  "macerator": {
+    "sounds": [ "gt4r:macerator" ]
+  },
+  "magnetizer": {
+    "sounds": [ "gt4r:magnetizer" ]
   }
 }

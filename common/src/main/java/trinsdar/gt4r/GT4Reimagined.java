@@ -13,18 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import trinsdar.gt4r.config.OreConfigHandler;
-import trinsdar.gt4r.data.Attributes;
-import trinsdar.gt4r.data.GT4RData;
-import trinsdar.gt4r.data.GT4RMaterialEvents;
-import trinsdar.gt4r.data.GT4RMaterialTags;
-import trinsdar.gt4r.data.Guis;
-import trinsdar.gt4r.data.Machines;
-import trinsdar.gt4r.data.Materials;
-import trinsdar.gt4r.data.MenuHandlers;
-import trinsdar.gt4r.data.Models;
-import trinsdar.gt4r.data.RecipeMaps;
-import trinsdar.gt4r.data.Structures;
-import trinsdar.gt4r.data.ToolTypes;
+import trinsdar.gt4r.data.*;
 import trinsdar.gt4r.data.client.ScreenFactories;
 import trinsdar.gt4r.datagen.GT4RItemModelProvider;
 import trinsdar.gt4r.datagen.GT4RLocalizations;
@@ -67,6 +56,7 @@ public class GT4Reimagined extends AntimatterMod {
                 RecipeMaps.postInit();
                 Guis.init(side);
                 Models.init();
+                GT4RSounds.init();
                 Registry.register(Registry.LOOT_FUNCTION_TYPE, new ResourceLocation(Ref.ID, "random_drop_bonus"), GT4RRandomDropBonus.RANDOM_DROP_BONUS);
             }
             case DATA_READY -> {

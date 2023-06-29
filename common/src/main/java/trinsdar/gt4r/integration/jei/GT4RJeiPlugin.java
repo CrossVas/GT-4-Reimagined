@@ -10,21 +10,13 @@ import mezz.jei.api.recipe.transfer.IRecipeTransferInfo;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeTransferRegistration;
 import muramasa.antimatter.Antimatter;
-import muramasa.antimatter.machine.types.Machine;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CraftingRecipe;
 import trinsdar.gt4r.Ref;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static muramasa.antimatter.machine.Tier.HV;
-import static muramasa.antimatter.machine.Tier.LV;
-import static trinsdar.gt4r.data.GT4RMaterialTags.CHARGING_WORKBENCH;
-import static trinsdar.gt4r.data.GT4RMaterialTags.WORKBENCH;
 
 @JeiPlugin
 public class GT4RJeiPlugin implements IModPlugin {
