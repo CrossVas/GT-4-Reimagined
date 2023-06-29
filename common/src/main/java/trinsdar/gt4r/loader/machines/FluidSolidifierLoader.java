@@ -1,6 +1,5 @@
 package trinsdar.gt4r.loader.machines;
 
-import muramasa.antimatter.data.AntimatterMaterialTypes;
 import muramasa.antimatter.material.Material;
 import muramasa.antimatter.recipe.ingredient.RecipeIngredient;
 import muramasa.antimatter.util.AntimatterPlatformUtils;
@@ -39,7 +38,7 @@ public class FluidSolidifierLoader {
     private static void add(Material m, ItemStack output, String suffix, Item mold, long amount, int power) {
         if (!m.has(LIQUID)) return;
         FLUID_SOLIDIFYING.RB()
-                .ii(RecipeIngredient.of(mold,1))
+                .ii(RecipeIngredient.of(mold,1).setNoConsume())
                 .fi(m.getLiquid(amount))
                 .io(output)
                 .add(m.getId() + "_" + suffix, (long)(16 * ((float)amount / ratio())), power);
@@ -52,5 +51,4 @@ public class FluidSolidifierLoader {
     private static long amount(float ingots){
         return (long) (ratio() * ingots);
     }
-
 }
