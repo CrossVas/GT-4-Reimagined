@@ -4,6 +4,8 @@ import muramasa.antimatter.AntimatterAPI;
 import muramasa.antimatter.data.AntimatterDefaultTools;
 import muramasa.antimatter.data.AntimatterStoneTypes;
 import muramasa.antimatter.datagen.providers.AntimatterBlockTagProvider;
+import muramasa.antimatter.machine.BlockMachine;
+import muramasa.antimatter.machine.BlockMultiMachine;
 import muramasa.antimatter.util.TagUtils;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -31,12 +33,22 @@ public class GT4RBlockTagProvider extends AntimatterBlockTagProvider {
         });
         AntimatterAPI.all(BlockMaterialChest.class, Ref.ID, cas -> {
             this.tag(AntimatterDefaultTools.WRENCH.getToolType()).add(cas);
+            this.tag(AntimatterDefaultTools.ELECTRIC_WRENCH.getToolType()).add(cas);
         });
         AntimatterAPI.all(BlockNonSolidMachine.class, Ref.ID, cas -> {
             this.tag(AntimatterDefaultTools.WRENCH.getToolType()).add(cas);
+            this.tag(AntimatterDefaultTools.ELECTRIC_WRENCH.getToolType()).add(cas);
         });
         AntimatterAPI.all(BlockRedstoneMachine.class, Ref.ID, cas -> {
             this.tag(AntimatterDefaultTools.WRENCH.getToolType()).add(cas);
+            this.tag(AntimatterDefaultTools.ELECTRIC_WRENCH.getToolType()).add(cas);
+        });
+        // TODO: Remove when this get handled by AntimatterAPI
+        AntimatterAPI.all(BlockMachine.class, pipe -> {
+            this.tag(AntimatterDefaultTools.ELECTRIC_WRENCH.getToolType()).add(pipe);
+        });
+        AntimatterAPI.all(BlockMultiMachine.class, pipe -> {
+            this.tag(AntimatterDefaultTools.ELECTRIC_WRENCH.getToolType()).add(pipe);
         });
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(REINFORCED_GLASS, REINFORCED_STONE, IRIDIUM_REINFORCED_STONE);
     }
