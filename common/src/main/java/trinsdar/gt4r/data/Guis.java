@@ -95,9 +95,8 @@ public class Guis {
         EXTRACTOR.add(COMPRESSOR);
         EXTRUDER.add(ALLOY_SMELTER);
         LATHE.add(CUTTER);
+        MACERATOR.add(MV, COMPRESSOR).add(MV, IT_OUT, 125, 25).add(MV, IT_OUT, 143, 25).setGuiTiers(new ImmutableMap.Builder<Tier, Tier>().put(LV, LV).put(MV, MV));;
         MACERATOR.add(LV, COMPRESSOR);
-        MACERATOR.add(MV, COMPRESSOR).add(MV, IT_OUT, 125, 25).add(MV, IT_OUT, 143, 25);
-        UNIVERSAL_MACERATOR.add(IT_IN, 53, 25).add(IT_OUT, 107, 25).add(IT_OUT, 125, 25).add(IT_OUT, 143, 25).add(ENERGY,80, 63);
         RECYCLER.add(COMPRESSOR);
         WIRE_MILL.add(COMPRESSOR);
         CENTRIFUGE.add(IT_IN, 35, 25).add(IT_IN, 53, 25).add(FL_IN, 8, 63).add(IT_OUT, 107, 16).add(IT_OUT, 125, 16).add(IT_OUT, 143, 16).add(IT_OUT, 107, 34).add(IT_OUT, 125, 34).add(IT_OUT, 143, 34).add(ENERGY,26, 63).add(FL_OUT, 44, 63).add(FL_OUT, 62, 63).add(FL_OUT, 80, 63).add(FL_OUT, 98, 63).add(FL_OUT, 116, 63).add(FL_OUT, 134, 63);

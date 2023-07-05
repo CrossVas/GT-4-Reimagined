@@ -41,7 +41,7 @@ public class Machines {
     public static BasicMachine SCANNER = new UpgradeableMachine(Ref.ID, "scanner").setTiers(HV).setMap(SCANNING).addFlags(GUI, ITEM, FLUID).setSound(GT4RSounds.MAGNETIZER, 0.6F);;
     public static BasicMachine WIRE_MILL = new UpgradeableMachine(Ref.ID, "wire_mill").setMap(WIRE_MILLING).setTiers(LV).addFlags(GUI, ITEM).custom().setSound(GT4RSounds.PRESS, 0.6F);;
     public static BasicMachine CENTRIFUGE = new UpgradeableMachine(Ref.ID, "centrifuge").setMap(CENTRIFUGING).setTiers(LV).addFlags(GUI, ITEM, FLUID);
-    public static BasicMachine ELECTROLYZER = new UpgradeableMachine(Ref.ID, "electrolyzer").setMap(ELECTROLYZING).addFlags(GUI, ITEM, FLUID).setTiers(MV).setTierSpecificLang().setSound(GT4RSounds.MAGNETIZER, 0.6F);;
+    public static BasicMachine ELECTROLYZER = new UpgradeableMachine(Ref.ID, "electrolyzer").setMap(ELECTROLYZING).addFlags(GUI, ITEM, FLUID).setTiers(LV, MV).setTierSpecificLang().setSound(GT4RSounds.MAGNETIZER, 0.6F);;
     public static BasicMachine CHEMICAL_REACTOR = new UpgradeableMachine(Ref.ID, "chemical_reactor").setTiers(MV).setMap(CHEMICAL_REACTING).addFlags(GUI, ITEM, FLUID);
     public static BasicMachine FLUID_CANNER = new UpgradeableMachine(Ref.ID, "fluid_canner").setMap(FLUID_CANNING).setTiers(LV).addFlags(GUI, ITEM, FLUID);
     public static BasicMachine DISASSEMBLER = new UpgradeableMachine(Ref.ID, "disassembler").setMap(DISASSEMBLING).setTiers(LV).addFlags(GUI, ITEM).custom();
