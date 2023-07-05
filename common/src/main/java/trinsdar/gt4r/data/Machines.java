@@ -27,24 +27,24 @@ import static trinsdar.gt4r.data.RecipeMaps.*;
 public class Machines {
 
     public static BasicMachine ALLOY_SMELTER = new UpgradeableMachine(Ref.ID, "alloy_smelter").setMap(ALLOY_SMELTING).setTiers(LV).addFlags(GUI, ITEM).setSound(GT4RSounds.FURNACE, 0.6F);
-    public static BasicMachine ASSEMBLER = new UpgradeableMachine(Ref.ID, "assembler").setMap(ASSEMBLING).setTiers(LV).addFlags(GUI, ITEM).custom();
+    public static BasicMachine ASSEMBLER = new UpgradeableMachine(Ref.ID, "assembler").setMap(ASSEMBLING).setTiers(LV).addFlags(GUI, ITEM);
     public static BasicMachine BENDER = new UpgradeableMachine(Ref.ID, "plate_bender").setMap(BENDING).setTiers(LV).addFlags(GUI, ITEM).setSound(GT4RSounds.PRESS, 0.6F);
     public static BasicMachine CANNER = new UpgradeableMachine(Ref.ID, "canner").setMap(CANNING).setTiers(LV).addFlags(GUI, ITEM);
     public static BasicMachine COMPRESSOR = new UpgradeableMachine(Ref.ID, "compressor").setMap(COMPRESSING).setTiers(LV).addFlags(GUI, ITEM).setSound(GT4RSounds.COMPRESSOR, 0.6F);
     public static BasicMachine CUTTER = new UpgradeableMachine(Ref.ID, "cutter").setMap(CUTTING).setTiers(LV).addFlags(GUI, ITEM);
     public static BasicMachine FURNACE = new UpgradeableMachine(Ref.ID, "furnace").setMap(SMELTING).setTiers(LV).addFlags(GUI, ITEM).setSound(GT4RSounds.FURNACE, 0.6F);
     public static BasicMachine EXTRACTOR = new UpgradeableMachine(Ref.ID, "extractor").setMap(EXTRACTING).setTiers(LV).addFlags(GUI, ITEM).setSound(GT4RSounds.EXTRACTOR, 0.6F);
-    public static BasicMachine EXTRUDER = new BasicMachine(Ref.ID, "extruder").setTiers(MV).setMap(EXTRUDING).addFlags(GUI, ITEM).custom();
+    public static BasicMachine EXTRUDER = new BasicMachine(Ref.ID, "extruder").setTiers(MV).setMap(EXTRUDING).addFlags(GUI, ITEM);
     public static BasicMachine LATHE = new UpgradeableMachine(Ref.ID, "lathe").setMap(LATHING).setTiers(LV).addFlags(GUI, ITEM).setSound(GT4RSounds.PRESS, 0.6F);
-    public static BasicMachine MACERATOR = new UpgradeableMachine(Ref.ID, "macerator").setMap(MACERATING).addFlags(GUI, ITEM).setTiers(LV, MV).custom().overlayTexture(Textures.TIER_SPECIFIC_OVERLAY_HANDLER).setTierSpecificLang().setSound(GT4RSounds.MACERATOR, 0.6F);
+    public static BasicMachine MACERATOR = new UpgradeableMachine(Ref.ID, "macerator").setMap(MACERATING).addFlags(GUI, ITEM).setTiers(LV, MV).overlayTexture(Textures.TIER_SPECIFIC_OVERLAY_HANDLER).setTierSpecificLang().setSound(GT4RSounds.MACERATOR, 0.6F);
     public static BasicMachine RECYCLER = new UpgradeableMachine(Ref.ID, "recycler").setMap(RECYCLING).setTiers(LV).addFlags(GUI, ITEM).setSound(GT4RSounds.RECYCLER, 0.6F);
     public static BasicMachine SCANNER = new UpgradeableMachine(Ref.ID, "scanner").setTiers(HV).setMap(SCANNING).addFlags(GUI, ITEM, FLUID).setSound(GT4RSounds.MAGNETIZER, 0.6F);
-    public static BasicMachine WIRE_MILL = new UpgradeableMachine(Ref.ID, "wire_mill").setMap(WIRE_MILLING).setTiers(LV).addFlags(GUI, ITEM).custom().setSound(GT4RSounds.PRESS, 0.6F);
+    public static BasicMachine WIRE_MILL = new UpgradeableMachine(Ref.ID, "wire_mill").setMap(WIRE_MILLING).setTiers(LV).addFlags(GUI, ITEM).setSound(GT4RSounds.PRESS, 0.6F);
     public static BasicMachine CENTRIFUGE = new UpgradeableMachine(Ref.ID, "centrifuge").setMap(CENTRIFUGING).setTiers(LV).addFlags(GUI, ITEM, FLUID);
     public static BasicMachine ELECTROLYZER = new UpgradeableMachine(Ref.ID, "electrolyzer").setMap(ELECTROLYZING).addFlags(GUI, ITEM, FLUID).setTiers(LV, MV).setTierSpecificLang().setSound(GT4RSounds.MAGNETIZER, 0.6F);
     public static BasicMachine CHEMICAL_REACTOR = new UpgradeableMachine(Ref.ID, "chemical_reactor").setTiers(MV).setMap(CHEMICAL_REACTING).addFlags(GUI, ITEM, FLUID);
     public static BasicMachine FLUID_CANNER = new UpgradeableMachine(Ref.ID, "fluid_canner").setMap(FLUID_CANNING).setTiers(LV).addFlags(GUI, ITEM, FLUID);
-    public static BasicMachine DISASSEMBLER = new UpgradeableMachine(Ref.ID, "disassembler").setMap(DISASSEMBLING).setTiers(LV).addFlags(GUI, ITEM).custom();
+    public static BasicMachine DISASSEMBLER = new UpgradeableMachine(Ref.ID, "disassembler").setMap(DISASSEMBLING).setTiers(LV).addFlags(GUI, ITEM);
     public static BasicMachine MASS_FABRICATOR = new UpgradeableMachine(Ref.ID, "mass_fabricator").setTiers(EV).setMap(MASS_FABRICATING).addFlags(GUI, ITEM, FLUID);
     public static BasicMachine REPLICATOR = new UpgradeableMachine(Ref.ID, "replicator").setTiers(EV).setMap(REPLICATING).addFlags(GUI, ITEM, FLUID);
     public static BasicMachine FORGE_HAMMER = new UpgradeableMachine(Ref.ID, "forge_hammer").setMap(HAMMERING).setTiers(LV).addFlags(GUI, ITEM).setTile(TileEntityForgeHammer::new).setSound(SoundEvents.ANVIL_PLACE, 0.6F);
@@ -57,7 +57,7 @@ public class Machines {
     public static BasicMachine BATH = new UpgradeableMachine(Ref.ID, "bath").setMap(BATHING).setTiers(LV).addFlags(GUI, ITEM).setSound(GT4RSounds.MACERATOR, 0.6F);
     public static BasicMachine DISTILLERY = new UpgradeableMachine(Ref.ID, "distillery").setMap(BASIC_DISTILLING).setTiers(LV).addFlags(GUI, ITEM, FLUID);
     public static BasicMachine FERMENTER = new UpgradeableMachine(Ref.ID, "fermenter").setMap(FERMENTING).setTiers(LV).addFlags(GUI, ITEM, FLUID);
-    public static NonSolidMachine DUSTBIN = new NonSolidMachine(Ref.ID, "dustbin").setMap(RecipeMaps.DUSTBIN).addFlags(GUI, ITEM).setTiers(LV).custom().baseTexture(Textures.DUSTBIN_HANDLER).covers(emptyFactory).frontCovers().setTile(TileEntityDustBin::new);
+    public static NonSolidMachine DUSTBIN = new NonSolidMachine(Ref.ID, "dustbin").setMap(RecipeMaps.DUSTBIN).addFlags(GUI, ITEM).setTiers(LV).baseTexture(Textures.DUSTBIN_HANDLER).covers(emptyFactory).frontCovers().setTile(TileEntityDustBin::new).custom();
 
     public static BasicMachine COAL_BOILER = new BasicMachine(Ref.ID, "coal_boiler").setMap(COAL_BOILERS).setTiers(BRONZE, STEEL).addFlags(GUI, STEAM, ITEM, FLUID, CELL).baseTexture(Textures.BOILER_HANDLER).setTile(TileEntityCoalBoiler::new).noCovers();
     public static BasicMachine STEAM_FURNACE = new BasicMachine(Ref.ID, "steam_furnace").setTiers(BRONZE, STEEL).addFlags(GUI, STEAM, ITEM, FLUID).setMap(STEAM_SMELTING).baseTexture(Textures.BOILER_HANDLER).setTile(TileEntitySteamMachine::new).covers(COVER_STEAM_VENT).setSound(GT4RSounds.FURNACE, 0.6F);
@@ -159,7 +159,7 @@ public class Machines {
     public static GeneratorMachine SEMIFLUID_GENERATOR = new GeneratorMachine(Ref.ID, "semifluid_generator").frontCovers().allowFrontIO().setMap(SEMIFLUID_FUELS).setTiers(LV).addFlags(GUI, ITEM, FLUID, GENERATOR, CELL).covers(emptyFactory,emptyFactory,emptyFactory,emptyFactory,emptyFactory, COVER_DYNAMO_OLD).setAllowVerticalFacing(false).setOutputCover(COVER_DYNAMO_OLD).setTile(TileEntityCoveredGenerator::new);
     public static GeneratorMachine THERMAL_GENERATOR = new GeneratorMachine(Ref.ID, "thermal_generator").frontCovers().allowFrontIO().allowFrontIO().setMap(THERMAL_GENERATOR_FUELS).setTiers(LV).addFlags(GUI, ITEM, FLUID, GENERATOR, CELL).covers(emptyFactory, emptyFactory, emptyFactory, emptyFactory, emptyFactory, COVER_DYNAMO_OLD).setAllowVerticalFacing(false).setOutputCover(COVER_DYNAMO_OLD).setTile(TileEntityCoveredGenerator::new);
     public static GeneratorMachine WINDMILL = new GeneratorMachine(Ref.ID, "windmill").setTiers(ULV).covers(emptyFactory,emptyFactory,emptyFactory,emptyFactory,emptyFactory, COVER_DYNAMO_OLD).allowFrontIO().setAllowVerticalFacing(false).setOutputCover(COVER_DYNAMO_OLD).setTile(TileEntityCoveredGenerator::new);
-    public static GeneratorMachine WATERMILL = new GeneratorMachine(Ref.ID, "watermill").setTiers(ULV).covers(emptyFactory,emptyFactory,emptyFactory,emptyFactory,emptyFactory, COVER_DYNAMO_OLD).allowFrontIO().setAllowVerticalFacing(false).setOutputCover(COVER_DYNAMO_OLD).setTile(TileEntityCoveredGenerator::new).custom();
+    public static GeneratorMachine WATERMILL = new GeneratorMachine(Ref.ID, "watermill").setTiers(ULV).covers(emptyFactory,emptyFactory,emptyFactory,emptyFactory,emptyFactory, COVER_DYNAMO_OLD).allowFrontIO().setAllowVerticalFacing(false).setOutputCover(COVER_DYNAMO_OLD).setTile(TileEntityCoveredGenerator::new);
 
     public static TankMachine INFINITE_STEAM = new TankMachine(Ref.ID, "infinite_steam").addFlags(FLUID, CELL, GUI).setTiers(LV).setTile(TileEntityInfiniteFluid::new);
     public static BasicMachine BATTERY_BUFFER_ONE = new BasicMachine(Ref.ID, "1x_battery_buffer").noCovers().addFlags(GUI, ENERGY, ITEM).setTile(TileEntityBatteryBuffer::new).overlayTexture(Textures.TIER_SPECIFIC_OVERLAY_HANDLER).allowFrontIO().setAllowVerticalFacing(true);
