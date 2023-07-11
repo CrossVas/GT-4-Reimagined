@@ -1,18 +1,8 @@
 package trinsdar.gt4r.data;
 
-import muramasa.antimatter.Data;
-import muramasa.antimatter.machine.types.Machine;
 import muramasa.antimatter.structure.BlockStateElement;
-import muramasa.antimatter.structure.FakeTileElement;
-import muramasa.antimatter.structure.PatternBuilder;
-import net.minecraft.core.Direction;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluids;
 
-import java.util.function.BiFunction;
-
-import static muramasa.antimatter.machine.Tier.LV;
 import static trinsdar.gt4r.data.GT4RData.*;
 import static trinsdar.gt4r.data.Machines.*;
 
@@ -22,10 +12,6 @@ public class Structures {
     public static BlockStateElement AIR_OR_LAVA = new BlockStateElement("air_or_lava", (w, p, s) -> s.isAir() || s.getFluidState().getType() == Fluids.LAVA/* || s.getBlock() == Blocks.FLOWING_LAVA*/);
     public static BlockStateElement AIR = new BlockStateElement("air", (w, p, s) -> s.isAir());
     public static BlockStateElement WATER = new BlockStateElement("water", (w, p, s) -> s.getFluidState().getType() == Fluids.WATER);
-
-
-    public static FakeTileElement BRICK = new FakeTileElement(FIRE_BRICKS);
-    public static FakeTileElement CASING = new FakeTileElement(STANDARD_MACHINE_CASING);
 
     public static void initPatterns() {
         //TODO after patterns are fixed
@@ -146,12 +132,12 @@ public class Structures {
     public static void init() {
         COKE_OVEN.setStructure(b -> b
             .of("ccc", "ccc", "ccc").of("CCC", "CAM", "CCC").of("CCC", "CCC", "CCC")
-            .at("C", BRICK).at("M", COKE_OVEN).at("c", BRICK.cover(Direction.DOWN, Data.COVEROUTPUT))
+            .at("C", BRICK).at("M", COKE_OVEN).at("c", BRICK)
             .build().offset(2, -1)
         );
         PYROLYSIS_OVEN.setStructure(b -> b
                 .of("CCC", "CCM", "CCC").of("CCC", "CLC", "CCC").of("CCC", "CCC", "CCC")
-                .at("M", PYROLYSIS_OVEN).at("C", CASING).at("L", AIR_OR_LAVA)
+                .at("M", PYROLYSIS_OVEN).at("C", STANDARD_MACHINE_CASING).at("L", AIR_OR_LAVA)
                 .build().offset(2, 0)
         );
         PRIMITIVE_BLAST_FURNACE.setStructure(b -> b

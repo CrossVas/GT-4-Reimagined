@@ -32,4 +32,9 @@ public class TileEntityCokeOven extends TileEntityBasicMultiMachine<TileEntityCo
         else if (cap == IEnergyHandler.class && energyHandler.isPresent()) return energyHandler.side(side).cast();
         return LazyOptional.empty();
     }
+
+    @Override
+    public boolean allowsFakeTiles() {
+        return true;
+    }
 }

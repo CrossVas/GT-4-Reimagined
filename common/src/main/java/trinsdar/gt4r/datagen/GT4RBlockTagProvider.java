@@ -43,6 +43,9 @@ public class GT4RBlockTagProvider extends AntimatterBlockTagProvider {
             this.tag(AntimatterDefaultTools.WRENCH.getToolType()).add(cas);
             this.tag(AntimatterDefaultTools.ELECTRIC_WRENCH.getToolType()).add(cas);
         });
+        AntimatterAPI.all(BlockFakeCasing.class, Ref.ID, cas -> {
+            this.tag(AntimatterDefaultTools.PICKAXE.getToolType()).add(cas);
+        });
         // TODO: Remove when this get handled by AntimatterAPI
         AntimatterAPI.all(BlockMachine.class, pipe -> {
             this.tag(AntimatterDefaultTools.ELECTRIC_WRENCH.getToolType()).add(pipe);

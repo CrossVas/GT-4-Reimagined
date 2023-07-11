@@ -2,6 +2,7 @@ package trinsdar.gt4r.block;
 
 import muramasa.antimatter.texture.Texture;
 
+// TODO: Check usability
 public abstract class BlockCasingMachine extends BlockCasing {
     // TODO used for special features for machine casings
     public BlockCasingMachine(String domain, String id) {

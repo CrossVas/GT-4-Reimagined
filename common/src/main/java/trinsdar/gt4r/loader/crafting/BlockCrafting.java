@@ -1,26 +1,23 @@
 package trinsdar.gt4r.loader.crafting;
 
+import muramasa.antimatter.data.ForgeCTags;
 import muramasa.antimatter.datagen.providers.AntimatterRecipeProvider;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.ItemStack;
 import trinsdar.gt4r.Ref;
-import muramasa.antimatter.data.ForgeCTags;
 
 import java.util.function.Consumer;
 
 import static com.google.common.collect.ImmutableMap.of;
 import static muramasa.antimatter.data.AntimatterMaterialTypes.PLATE;
-import static muramasa.antimatter.data.AntimatterDefaultTools.SAW;
 import static trinsdar.gt4r.data.CustomTags.*;
 import static trinsdar.gt4r.data.GT4RData.*;
-import static trinsdar.gt4r.data.Materials.Carbon;
-import static trinsdar.gt4r.data.Materials.Chrome;
-import static trinsdar.gt4r.data.Materials.Titanium;
+import static trinsdar.gt4r.data.Materials.*;
 
 public class BlockCrafting {
     public static void loadRecipes(Consumer<FinishedRecipe> output, AntimatterRecipeProvider provider) {
         provider.addStackRecipe(output, Ref.ID, "firebricks", "blocks", "has_fire_brick", provider.hasSafeItem(FireBrick),
-                new ItemStack(FIRE_BRICKS), of('F', FireBrick), "FF", "FF");
+                new ItemStack(BRICK), of('F', FireBrick), "FF", "FF");
         provider.addStackRecipe(output, Ref.ID, "reinforce_glass_v", "blocks", "has_advanced_alloy", provider.hasSafeItem(AdvancedAlloy),
                 new ItemStack(REINFORCED_GLASS, 7), of('G', ForgeCTags.GLASS, 'A', AdvancedAlloy), "GAG", "GGG", "GAG");
         provider.addStackRecipe(output, Ref.ID, "reinforce_glass_h", "blocks", "has_advanced_alloy", provider.hasSafeItem(AdvancedAlloy),

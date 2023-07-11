@@ -12,6 +12,7 @@ import muramasa.antimatter.material.MaterialTags;
 import net.minecraft.world.item.Item;
 import trinsdar.gt4r.Ref;
 import trinsdar.gt4r.block.BlockCasing;
+import trinsdar.gt4r.block.BlockFakeCasing;
 import trinsdar.gt4r.data.GT4RData;
 import trinsdar.gt4r.items.ItemIntCircuit;
 import trinsdar.gt4r.items.ItemMatch;
@@ -113,6 +114,7 @@ public class GT4RLocalizations {
                 }
             });
             AntimatterAPI.all(ItemFluidCell.class, domain).forEach(i -> override(i.getDescriptionId(), lowerUnderscoreToUpperSpacedRotated(i.getId())));
+            AntimatterAPI.all(BlockFakeCasing.class, domain).forEach(i -> add(i, lowerUnderscoreToUpperSpaced(i.getId())));
         }
 
         @Override

@@ -19,6 +19,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import trinsdar.gt4r.data.GT4RData;
 
+// TODO: Check usability
+
 public class BlockCasing extends BlockDynamic {
 
     public BlockCasing(String domain, String id, Properties properties) {
